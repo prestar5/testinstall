@@ -32,26 +32,30 @@ sleep 3
 sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git
 cd paru
-makepkg -si
+makepkg -si --noconfirm
 echo "installed paru! deleting paru dir..."
 cd ..
 rm -rf paru
 
 # define packages to install via pacman and paru
-pkg_pacman=("kitty zsh hyprland hyprpaper hyprlock rofi-wayland waybar sddm xdg-desktop-portal-hyprland nemo nemo-fileroller nemo-image-converter swaync pavucontrol fastfetch btop nwg-look mate-polkit ttf-terminus-nerd ttf-arimo-nerd wl-clipboard grim slurp brightnessctl playerctl noto-fonts-cjk noto-fonts-emoji qt5ct qt6ct papirus-icon-theme zoxide")
-pkg_aur=("hyprpicker" "hyprshade" "hyprshot" "wl-screenrec" "clipse" "checkupdates-with-aur" "pokeget" "catppuccin-cursors-mocha" "auto-cpufreq" "ungoogled-chromium-bin" "vscodium-bin")
+pkg_pacman=("kitty zsh hyprland hyprpaper hyprlock rofi-wayland waybar sddm xdg-desktop-portal-hyprland nemo nemo-fileroller nemo-image-converter swaync pavucontrol fastfetch btop nwg-look mate-polkit ttf-terminus-nerd ttf-arimo-nerd wl-clipboard grim slurp brightnessctl playerctl noto-fonts-cjk noto-fonts-emoji qt5ct qt6ct papirus-icon-theme zoxide micro")
+pkg_aur=("hyprpicker hyprshade hyprshot wl-screenrec clipse checkupdates-with-aur pokeget catppuccin-cursors-mocha auto-cpufreq ungoogled-chromium-bin")
 
+clear
 echo "installing required packages from arch repos..."
-sudo pacman -S $pkg_pacman
+sleep 1;
+paru -S $pkg_pacman --noconfirm
 
+clear
 echo "install aur shit idk"
-sleep 3;
+sleep 1;
+paru -S $pkg_aur --noconfirm
 
-# echo systemctl shit
-echo "sddm"
-echo "other wankshit"
-sleep 3;
+# copy dotfiles
+# >todo
 
+# enable services
+# >todo
 
 # finish msg
 echo "finished installing and configuring the system! you should probably restart the system or something idk"
