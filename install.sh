@@ -20,26 +20,24 @@ echo "please type your password to grant the script superuser permissions"
 sudo echo "access granted! proceeding with installation..."
 sudo pacman -Sy
 
-echo "installing git..."
-sudo pacman -S git --noconfirm
+echo "installing git and rust for paru installation..."
+sudo pacman -S git rust --noconfirm
 
 echo "installing paru..."
-echo "do paru stuffs"
 
 # under the assumption paru is not installed. should detect if paru is installed or not, idk.
 # > todo: add a module which detects if paru or other aur helper is installed
-# temporarily comment this out for test purposes!
-# sleep 3
-# sudo pacman -S --needed base-devel
-# #git clone https://aur.archlinux.org/paru.git
-# cd paru
-# makepkg -si
-# echo "installed paru! deleting paru dir..."
-# cd ..
-# rm -rf paru
-# echo "deleted paru dir. installing requirements..."
+temporarily comment this out for test purposes!
+sleep 3
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+echo "installed paru! deleting paru dir..."
+cd ..
+rm -rf paru
 
-# install packages via pacman and paru
+# define packages to install via pacman and paru
 pkg_pacman=("kitty zsh hyprland hyprpaper hyprlock rofi-wayland waybar sddm xdg-desktop-portal-hyprland nemo nemo-fileroller nemo-image-converter swaync pavucontrol fastfetch btop nwg-look mate-polkit ttf-terminus-nerd ttf-arimo-nerd wl-clipboard grim slurp brightnessctl playerctl noto-fonts-cjk noto-fonts-emoji qt5ct qt6ct papirus-icon-theme zoxide")
 pkg_aur=("hyprpicker" "hyprshade" "hyprshot" "wl-screenrec" "clipse" "checkupdates-with-aur" "pokeget" "catppuccin-cursors-mocha" "auto-cpufreq" "ungoogled-chromium-bin" "vscodium-bin")
 
